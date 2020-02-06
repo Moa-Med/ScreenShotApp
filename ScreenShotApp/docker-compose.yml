@@ -1,0 +1,21 @@
+version: "3"
+services:
+  ScreenShotApp:
+    image: screenmysql
+    ports:
+      - "8080:8080"
+    networks:
+      - screen-bd
+    depends_on:
+      - mysqldb
+ 
+  mysqldb:
+    image: mysql:8
+    networks:
+      - screen-bd
+    environment:
+      - MYSQL_ROOT_PASSWORD=Moh@med9
+      - MYSQL_DATABASE=screen 
+
+networks:
+  screen-bd: 
